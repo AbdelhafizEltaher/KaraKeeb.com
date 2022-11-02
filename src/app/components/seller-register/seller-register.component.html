@@ -1,0 +1,100 @@
+
+<div class="container py-5 mt-5">
+	<div class="form-container mt-5">
+		<div class="custom-card active">
+			<div class="m-4 text-center">
+				<h1 class="text-bold">Add Your Product</h1>
+			</div>
+			<div class="custom-card-body">
+				<form class="form" (ngSubmit)="Submit()" [formGroup]="sellerForm">
+					<div class="input-group">
+						<input type="text" formControlName="username"
+                        [class.is-valid]="username?.valid" [class.is-invalid]="username?.invalid">
+						<label class="label" for="username">Enter Your UserName</label>
+                        <div class="alert text-danger w-100" [hidden]="username?.untouched || username?.valid">
+                            <small *ngIf="username?.errors?.['required']">User Name is required</small>
+                            <small *ngIf="username?.errors?.['minlength']">User Name is must be 8 Lowercase letters
+                                at least</small>
+                        </div>
+					</div>
+
+					<div class="input-group">
+						<input type="text" formControlName="email"
+                        [class.is-valid]="email?.valid" [class.is-invalid]="email?.invalid">
+						<label class="label" for="email">Enter Your Email</label>
+                        <div class="alert text-danger w-100" [hidden]="email?.untouched || email?.valid">
+                            <small *ngIf="email?.errors?.['required']">User Name is required</small>
+                            <small *ngIf="email?.errors?.['email']">Please Enter Valied Email
+                                at least</small>
+                        </div>
+					</div>
+
+					<div class="input-group">
+						<input type="password"  formControlName="password">
+						<label class="label" for="password">Enter Your Password</label>
+                        <div class="alert text-danger" [hidden]="password?.untouched || password?.valid">
+
+                            <small *ngIf="password?.errors?.['required']">Password is required</small>
+                            <small *ngIf="password?.errors?.['minlength']">Passord is must be 8 Lowercase letters at
+                                least</small>
+                        </div>
+					</div>
+
+
+
+
+                    <div class="input-group">
+						<input type="password" formControlName="repassword">
+						<label class="label" for="email">ReType Your Password</label>
+                        <div class="alert text-danger" [hidden]="repassword?.untouched || matched()">
+                            <small *ngIf="password?.errors?.['required']">Password is required</small>
+                            <small *ngIf="!matched()">Password Don't matched </small>
+
+                        </div>
+					</div>
+					<div class="input-group">
+						<input type="text"  formControlName="fullname">
+						<label class="label" for="password">Enter Your Full Name</label>
+                        <div class="alert text-danger" [hidden]="fullname?.untouched || fullname?.valid">
+
+                            <small *ngIf="fullname?.errors?.['required']">Full Name is required</small>
+                            <small *ngIf="fullname?.errors?.['minlength']">Full Name is must be 10 Lowercase letters
+                                at least</small>
+                        </div>
+					</div>
+
+                    <button class="btn btn-outline-dark mt-2"> Register</button>
+                    <a class="forgot text-decoration-none mt-3 fs-6 text-dark  login" (click)="GoLogin()"  >Do You Have an Account ... Sing In </a>
+				</form>
+			</div>
+		</div>
+		<div class="custom-card">
+			<div class="custom-card-header">
+				<h1 class="text-bold">Hello, Seller!</h1>
+			</div>
+			<div class="custom-card-body">
+				<h2 class="text-center text-cta">Start your journey with us today, enter your details to start.</h2>
+				<a class="btn btn-outline-white mt-2">Register And Enjoy</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->

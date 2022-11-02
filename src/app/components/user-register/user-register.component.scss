@@ -1,0 +1,246 @@
+// mixins
+@mixin size($width, $height: $width) {
+    
+    @if $width != 'auto' {
+        @if (unitless($width)) {
+            $width: $width * 1px;
+        }
+    }
+    
+    @if $height != 'auto' {
+        @if (unitless($height)) {
+            $height: $height * 1px;
+        }
+    }
+
+	width: $width;
+	height: $height;
+}
+
+// Responsive media queries
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+	$min: breakpoint-min($name, $breakpoints);
+	@if $min {
+		@media (min-width: $min) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+	$min: map-get($breakpoints, $name);
+	@return if($min != 0, $min, null);
+}
+
+// Theme
+$blue: #4BC0C8;
+$green: #92FE9D;
+$white: #fff;
+$orange: #FEAC5E;
+$pink: #C779D0;
+$dark: #333;
+$gray: #eeeeee;
+$gray-light: transparentize($dark, 0.3);
+$gradient: linear-gradient(40deg, $orange, $pink, $blue);
+
+// Grid breakpoints for easy media queries
+$xs: 0;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+$xl: 1280px;
+    
+$grid-breakpoints: (
+	xs: $xs,
+	sm: $sm,
+	md: $md,
+	lg: $lg,
+	xl: $xl,
+);
+
+$transition-speed: 0.1s;
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+
+    // For codepen
+    display: grid;
+    place-items:center;
+    height: 100vh;
+}
+
+.form-container {
+    box-shadow: 0px 0px 12px 5px rgba(185, 129, 207, 0.2);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.custom-card {
+    background: $gradient;
+    color: $white;
+
+    &.active {
+        background: $white;
+        color: $dark;
+    }
+
+    &-header {
+        width: 100%;
+        padding-top: 15rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    &-body {
+        display: grid;
+        place-items: center;
+        width: 80%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 6rem;
+        margin: 0 auto;
+    }
+}
+
+.circle {
+    @include size(50);
+    border-radius: 50%;
+    border: 1px solid $gray;
+    margin: 0 0.5rem;
+    display: grid;
+    place-items: center;
+    transition: all $transition-speed ease-in-out;
+
+    &:hover {
+        border-color: $blue;
+
+        > * {
+            color: $blue;       
+        }
+    }
+
+    > * {
+        transition: all $transition-speed ease-in-out;
+        color: $gray-light;       
+    }
+}
+
+%label {
+    top: -1.3rem;
+    left: -0.5rem;
+    transform: scale(0.8);
+}
+
+.form {
+    width: 100%;
+    display: grid;
+    place-items: center;
+
+    .input-group {
+        margin: 1rem 0;
+        width: 80%;
+        position: relative;
+
+        input {
+            background: $gray;
+            border: 0;
+            border-radius: 0;
+            color: $dark;
+            outline: none;
+            display: block;
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 2.5rem;
+            border-radius: 2rem;
+    
+            &:focus {
+                outline: none;
+                border-color: inherit;
+                box-shadow: none;
+
+                ~ label {
+                    @extend %label;
+                }
+            }
+
+            &:valid {
+                ~ label {
+                    @extend %label;
+                }
+            }
+        }
+
+        label {
+            position: absolute;
+            top: 0.7rem;
+            left: 1.5rem;
+            color: $gray-light;
+            transition: all $transition-speed ease;
+          }
+    } 
+}
+
+.btn {
+    display: block;
+    padding: 0.8rem 1rem;
+    text-decoration: none;
+    color: $dark;
+    width: 200px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.09rem;
+    transition: all $transition-speed ease-in-out;
+
+    &-primary {
+        border-radius: 2rem;
+        color: $white;
+        background: $blue;
+        border-color: $blue;
+
+        &:hover, &:active, &:focus {
+            $darker-hover: darken($blue, 10%);
+            background: $darker-hover !important;
+            border-color: $darker-hover !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        &:active {
+            transform: scale(0.85);
+        }
+    }
+    &-outline-white {
+        border-radius: 2rem;
+        color: $white;
+        background: transparent;
+        border: 1px solid $white;
+
+        &:hover, &:active, &:focus {
+            background: transparent !important;
+            color: $white !important;
+            border-color: $white !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        &:active {
+            transform: scale(0.85);
+        }
+    }
+}
+
+.text-dark {
+    color: $dark;
+}
+
+.text-bold {
+    font-weight: 700;
+}
+
+.text-cta {
+    font-size: 1.2rem;
+    letter-spacing: 0.08rem;
+}

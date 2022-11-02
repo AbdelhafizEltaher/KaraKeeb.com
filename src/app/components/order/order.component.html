@@ -1,0 +1,76 @@
+<section class="py-5 px-0">
+
+  <div class="container mt-3 mt-md-5 py-5">
+    <h2 class="text-charcoal hidden-sm-down mb-4">Your Orders</h2>
+    <div class="row">
+      <div class="col-12">
+        <div class="list-group mb-5">
+          <div class="list-group-item p-3 bg-snow" style="position: relative;">
+            <div class="row w-100 no-gutters justify content-center align-items-center">
+              <div class="col-6 col-md">
+                <h6 class="text-charcoal mb-0 w-100">Order Number</h6>
+                <a class="text-pebble mb-0 w-100 mb-2 mb-md-0">{{num}}</a>
+              </div>
+              <div class="col-6 col-md">
+                <h6 class="text-charcoal mb-0 w-100">Date</h6>
+                <p class="text-pebble mb-0 w-100 mb-2 mb-md-0">{{date | date:"medium"}}</p>
+              </div>
+              <div class="col-6 col-md">
+                <h6 class="text-charcoal mb-0 w-100">Total</h6>
+                <p class="text-pebble mb-0 w-100 mb-2 mb-md-0"><span class="text-success">$</span>{{product?.Price}}</p>
+              </div>
+              <div class="col-6 col-md">
+                <h6 class="text-charcoal mb-0 w-100">Shipped To</h6>
+                <p class="text-pebble mb-0 w-100 mb-2 mb-md-0">{{user.FullName}}</p>
+              </div>
+              <div class="col-12 col-md-3">
+                <a class="btn btn-success w-100 my-2" (click)="order()">Confirm Order</a>
+                <a class="btn btn-danger w-100 my-2" (click)="cancel()">Cancel</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div *ngIf="willbuy">
+    <div id="BlockUIConfirm" class="BlockUIConfirm">
+      <div class="blockui-mask"></div>
+      <div class="RowDialogBody">
+        <div class="confirm-header row-dialog-hdr-success">
+        <h2 class="text-success text-center">Confirm Infromation</h2>  
+        </div>
+        <div class="confirm-body">
+          <h5>Product Infromation</h5>
+          <p>Product Title  is {{product?.Title}}</p>
+          <p>Product Price :<span>$</span>{{product?.Price}}</p>
+          <hr>
+          <h5>Order Infromation</h5>
+          <p> Product Will Shipping To {{ord.Adress}} With O-Number :{{num}}</p>
+
+          <p> To Mr:{{user.FullName}} *** With Email Is : {{user.Email}}</p>
+          <p>Order Date : {{date | date:"medium"}}</p>
+        </div>
+        <div class="confirm-btn-panel pull-right">
+          <div class="btn-holder pull-right d-flex justify-content-around">
+            <input type="submit" class="btn btn-success" value="Yes, Accept"  (click)="Buy()"/>
+            <input type="button" class="btn btn-danger" value="No, Cancel"  (click)="hidedialouge()"/>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+</section>

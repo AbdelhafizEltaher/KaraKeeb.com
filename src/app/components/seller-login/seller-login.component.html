@@ -1,0 +1,23 @@
+<div class="login-dark" style="height: 695px;">
+    <form [formGroup]="loginForm" (ngSubmit)="Submit()">
+        <h2 class="sr-only text-center text-dark">KaraKeeb.com</h2>
+        <div class="illustration">
+            <i class="icon ion-ios-locked-outline"></i>
+        </div>
+
+
+        <div class="form-group" >
+
+
+            <input class="form-control" type="text" placeholder="UserName" formControlName="username">
+
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password"  placeholder="password" id="pass1" formControlName="password">
+        </div>
+
+
+        <div class="form-group"><button class="btn btn-primary btn-block w-100">Log In</button>
+        </div><a class="forgot mt-3 fs-6 text-light" (click)="GoRegister()">Don't Have Account ... Create One </a>
+    </form>
+</div>

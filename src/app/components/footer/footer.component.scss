@@ -1,0 +1,11 @@
+.icons{
+    i {
+        transition: 1s;
+
+    &:hover{
+        color: #fff;
+        transform: scale(1.5);
+        cursor: pointer;
+    }
+} 
+}

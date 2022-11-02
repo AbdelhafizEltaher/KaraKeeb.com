@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
+    <div class="container">
+        <a routerLink="home"class="navbar-brand ms-3 ms-md-1 fs-3">KaraKeeb.com</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hiddenitems">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse " id="hiddenitems">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a routerLink="contactus" routerLinkActive="text-primary"  class="nav-link fs-5">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="aboutus" routerLinkActive="text-primary"  class="nav-link fs-5">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="allproducts" routerLinkActive="text-primary"  class="nav-link fs-5">Products</a>
+                </li>
+                <li class="nav-item" *ngIf="AvailableToSeller">
+                    <a routerLink="addproduct" routerLinkActive="text-primary"  class="nav-link fs-5">Add Product</a>
+                </li> 
+                <li class="nav-item" *ngIf="AvailableToSeller">
+                    <a routerLink="sellerprofile" routerLinkActive="text-primary"  class="nav-link fs-5"> <i class="fa-solid fa-user " ></i> {{SetProfileName()}} </a>
+                </li>
+
+                <li class="nav-item" *ngIf="availabletouser">
+                    <a routerLink="userprofile" routerLinkActive="text-primary"  class="nav-link fs-5"> <i class="fa-solid fa-user "  ></i> {{SetProfileName()}} </a>
+                </li>
+
+                <li class="nav-item" *ngIf="!AvailableToSeller && !availabletouser">
+                    <a routerLink="singup" routerLinkActive="text-primary"  class="nav-link fs-5">Sing Up</a>
+                </li>
+
+                <li class="nav-item" *ngIf="availabletouser">
+                    <a routerLink="cart" routerLinkActive="text-primary"  class="nav-link fs-5">  <i class="fa-solid fa-cart-shopping"></i>
+                   <span class="mx-1">{{calcCartItems()}} </span>     
+                 
+                </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>

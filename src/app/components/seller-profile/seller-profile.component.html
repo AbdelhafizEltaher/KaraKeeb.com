@@ -1,0 +1,39 @@
+<section class="py-5 mt-4">
+  <h1 class="py-5 text-Dark text-center">Scrol To Profile</h1>
+  <div class="page-header header-filter py-5" data-parallax="true"></div>
+  <div class="main main-raised">
+    <div class="profile-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto">
+            <div class="profile">
+              <div class="avatar my-4">
+                <img
+                  src="https://cdn2.vectorstock.com/i/1000x1000/20/76/man-avatar-profile-vector-21372076.jpg"
+                  alt="Circle Image" class=" img-fluid" width="300" height="300" style="border-radius: 50%;">
+              </div>
+              <div class="name">
+                <h1 class="title text-success">{{seller.FullName}}</h1>
+                <h3 class="title">Seller</h3>
+                <a class="btn btn-just-icon btn-link btn-dribbble"><i class="fa fa-dribbble"></i></a>
+                <a class="btn btn-just-icon btn-link btn-twitter"><i class="fa fa-twitter"></i></a>
+                <a class="btn btn-just-icon btn-link btn-pinterest"><i class="fa fa-pinterest"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="description text-center">
+          <p>An artist of considerable range, Chet Faker — the name taken by Melbourne-raised, Brooklyn-based Nick
+            Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid
+            groove structure. </p>
+        </div>
+        <div class="row">
+          <div class="col text-center py-2">
+            <button (click)="LogOut()" class="btn btn-danger py-3 w-25 fs-5"> Log Out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

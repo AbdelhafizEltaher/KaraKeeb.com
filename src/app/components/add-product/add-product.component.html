@@ -1,0 +1,52 @@
+<div class="container py-5 mt-5">
+	<div class="form-container mt-5">
+		<div class="custom-card active">
+			<div class="m-4 text-center">
+				<h1 class="text-bold">Add Your Product</h1>
+			</div>
+			<div class="custom-card-body">
+				<form class="form" (ngSubmit)="Submit()" [formGroup]="productForm">
+					<div class="input-group">
+						<input type="text" formControlName="title">
+						<label class="label" for="email">Enter Product Title</label>
+					</div>
+					<div class="input-group">
+						<input type="text"  formControlName="desc">
+						<label class="label" for="password">Enter Product Descreption </label>
+					</div>
+                    <div class="input-group">
+						<input type="number" formControlName="price">
+						<label class="label" for="email">Enter Product Price </label>
+					</div>
+					<div class="input-group">
+						<input type="text"  formControlName="color">
+						<label class="label" for="password">Enter Product Color</label>
+					</div>
+
+                    <div class="input-group">
+						<input type="text" formControlName="size">
+						<label class="label" for="email" >Enter Product Size</label>
+					</div>
+					<div class="input-group">
+						<input type="text"  formControlName="img">
+						<label class="label" for="password">Enter Product Img Url</label>
+					</div>
+                    <div class="input-group">
+						<input type="number"  formControlName="amount">
+						<label class="label" for="password">Enter Product Amount</label>
+					</div>
+                    <button class="btn btn-outline-dark mt-2"> Add Your Product </button>
+				</form>
+			</div>
+		</div>
+		<div class="custom-card">
+			<div class="custom-card-header">
+				<h1 class="text-bold">Hello, {{ Name}}!</h1>
+			</div>
+			<div class="custom-card-body">
+				<h2 class="text-center text-cta">Start your journey with us today, enter your details to start.</h2>
+				<a class="btn btn-outline-white mt-2">Add Your Product And Enjoy</a>
+			</div>
+		</div>
+	</div>
+</div>
